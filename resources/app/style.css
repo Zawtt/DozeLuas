@@ -1,0 +1,242 @@
+    /* TEMA "BLACK TIE" E FONTES */
+
+    /* 1. Importa a nova fonte temática "Caesar Dressing" */
+    @import url('https://fonts.googleapis.com/css2?family=Caesar+Dressing&display=swap');
+
+    /* 2. Define a nova paleta de cores e fontes */
+    :root {
+        --cor-fundo: #0D0D0D;
+        --cor-frame: #1C1C1C;
+        --cor-frame-borda: #333333;
+        --cor-texto: #ffffff;
+        --cor-destaque: #FFFFFF;
+        --cor-destaque-hover: #CCCCCC;
+        --cor-aba-fundo: #151515;
+        --cor-aba-inativa: #2F2F2F;
+        --cor-aba-inativa-texto: #9E9E9E;
+        --cor-input-fundo: #252525;
+        --cor-input-borda: #454545;
+        
+        /* MUDANÇA: Fonte principal alterada e tamanhos ajustados para a nova fonte */
+        --fonte-principal: 'Caesar Dressing', cursive;
+        --fonte-tamanho: 15px; 
+        --fonte-tamanho-label: 18px;
+        --fonte-tamanho-titulo: 15px;
+    }
+
+    body {
+        /* MUDANÇA AQUI: de uma cor sólida para um gradiente radial sofisticado */
+        background: radial-gradient(circle, #222222 10%, #0D0D0D 70%);
+        
+        color: var(--cor-texto);
+        font-family: var(--fonte-principal);
+        margin: 0; padding: 10px; height: 100vh;
+        box-sizing: border-box; overflow: hidden;
+    }
+
+    /* --- ESTRUTURA PRINCIPAL --- */
+    .container-principal { display: flex; gap: 10px; height: 100%; }
+    .coluna { display: flex; flex-direction: column; background-color: var(--cor-frame); border-radius: 8px; border: 1px solid var(--cor-frame-borda); }
+    #frame-esquerda { flex: 3; }
+    #frame-direita { flex: 2; }
+
+    /* --- SISTEMA DE ABAS --- */
+    .tab-container { display: flex; flex-direction: column; height: 100%; }
+    .tab-buttons { display: flex; background-color: var(--cor-aba-fundo); padding: 5px; border-top-left-radius: 8px; border-top-right-radius: 8px; }
+    .tab-button { padding: 10px 15px; cursor: pointer; background-color: var(--cor-aba-inativa); border: none; color: var(--cor-aba-inativa-texto); font-weight: bold; border-radius: 5px; margin-right: 5px; transition: background-color 0.2s; font-family: var(--fonte-principal); font-size: var(--fonte-tamanho-label); text-transform: uppercase; }
+    .tab-button:hover { background-color: #5A5A5A; }
+    .tab-button.active { background-color: var(--cor-destaque); color: #101010; font-weight: bold; }
+    .tab-content { padding: 15px; flex-grow: 1; overflow-y: auto; }
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; }
+
+    /* --- NOVOS ESTILOS DE BARRA DE ROLAGEM SOFISTICADA --- */
+    ::-webkit-scrollbar {
+        width: 14px;
+    }
+    ::-webkit-scrollbar-track {
+        background: var(--cor-aba-fundo);
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--cor-input-borda);
+        border-radius: 10px;
+        border: 3px solid var(--cor-aba-fundo);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #555555;
+    }
+
+    /* --- ESTILOS DA FICHA E GERAIS --- */
+    label { display: block; margin-bottom: 5px; font-size: var(--fonte-tamanho-label); text-transform: uppercase;}
+    h3, h4 { text-transform: uppercase; letter-spacing: 1px; color: #888; margin-top: 10px; margin-bottom: 15px; font-size: var(--fonte-tamanho-titulo); text-align: center; }
+    h4 { font-size: 14px; }
+    input[type="text"] { width: 100%; padding: 8px; background-color: var(--cor-input-fundo); border: 2px solid var(--cor-input-borda); border-radius: 5px; color: var(--cor-texto); font-size: var(--fonte-tamanho); box-sizing: border-box; font-family: var(--fonte-principal); }
+    input[type="text"]:focus { outline: none; border-color: var(--cor-destaque); }
+    .btn { padding: 10px 15px; font-size: var(--fonte-tamanho-label); font-weight: normal; background-color: var(--cor-aba-inativa); color: var(--cor-texto); border: 1px solid var(--cor-frame-borda); border-radius: 5px; cursor: pointer; transition: all 0.2s; display: inline-flex; justify-content: center; align-items: center; gap: 8px; text-transform: uppercase; }
+    .btn:hover { background-color: #4A4A4A; border-color: var(--cor-destaque); }
+    .icon { height: 1em; width: auto; filter: invert(90%); }
+    .separador { height: 1px; background-color: var(--cor-frame-borda); margin: 25px 0; }
+    .ficha-grid { display: grid; grid-template-columns: 180px 1fr; gap: 20px; align-items: start;}
+    .ficha-retrato { display: flex; flex-direction: column; align-items: center; }
+    .imagem-placeholder { width: 150px; height: 150px; background-color: var(--cor-fundo); border: 2px dashed var(--cor-frame-borda); border-radius: 5px; display: flex; justify-content: center; align-items: center; margin-bottom: 10px; }
+    .imagem-placeholder img { max-width: 100%; max-height: 100%; object-fit: cover; border-radius: 3px;}
+    .ficha-info-pessoal, .ficha-status { display: flex; flex-direction: column; gap: 10px; }
+    .campo-duplo { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    .campo { display: flex; flex-direction: column; }
+
+    .status-input#HP { border-color: #ff0000; box-shadow: 0 0 20px -2px #ff0000; }
+    .status-input#EN { border-color: #000000; box-shadow: 0 0 20px -2px #ff0000; }
+    .status-input#Mana { border-color: #061fff; box-shadow: 0 0 20px -2px #061fff; }
+    .status-input#EP { border-color: #070707; box-shadow: 0 0 20px -2px #00ff9d; }
+    .status-input#Aura { border-color: #ffffff; box-shadow: 0 0 20px -2px #ffffff; }
+    .status-input#ER { border-color: #000000; box-shadow: 0 0 20px -2px #02f7ff; }
+    .status-input#EA { border-color: #050505; box-shadow: 0 0 20px -2px #ffef0f; }
+
+    .ficha-atributos { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .atributos-coluna { display: flex; flex-direction: column; gap: 10px; }
+    .atributos-coluna .campo { display: grid; grid-template-columns: 150px 1fr; align-items: center; gap: 10px;}
+    .atributos-coluna label { margin-bottom: 0; }
+    .balanca-vida .balanca-grupo { display: inline-flex; align-items: center; margin: 0 15px;}
+    input[type="checkbox"] { width: 22px; height: 22px; }
+    .ficha-botoes { text-align: center; margin-top: 25px; }
+    .ficha-botoes .btn { margin: 0 10px; }
+    textarea { width: 100%; height: 95%; min-height: 500px; background-color: var(--cor-input-fundo); color: var(--cor-texto); border: 1px solid var(--cor-input-borda); border-radius: 5px; font-family: var(--fonte-principal); font-size: var(--fonte-tamanho); }
+    .btn-full { width: 100%; padding-top: 12px; padding-bottom: 12px; margin-top: 10px; background-image: linear-gradient(to right, #2F2F2F 50%, var(--cor-destaque) 50%); background-size: 200% 100%; background-position: left center; color: var(--cor-texto); border: 1px solid var(--cor-frame-borda); transition: background-position 0.4s ease, color 0.4s ease; }
+    .btn-full:hover { background-position: right center; color: #101010; }
+    .btn-full .icon { transition: filter 0.4s ease; filter: invert(90%); }
+    .btn-full:hover .icon { filter: invert(10%); }
+    .rolagens-rapidas { margin-top: 20px; }
+    #grid-rolagens-rapidas { display: flex; justify-content: space-between; margin-top: 10px; }
+    #grid-rolagens-especiais { display: flex; justify-content: space-around; margin-top: 10px; }
+    .btn-dado { flex-grow: 1; margin: 0 3px; padding: 8px 5px; font-size: 14px; font-weight: bold; background-color: var(--cor-aba-inativa); color: var(--cor-aba-inativa-texto); border: 2px solid transparent; border-radius: 5px; cursor: pointer; transition: all 0.3s ease; }
+    .btn-dado:hover { 
+        background-color: #5A5A5A;
+        box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.4);
+        border-color: rgba(255, 255, 255, 0.5);
+    }
+    .btn-especial { background-color: var(--cor-destaque); color: #101010;}
+    .btn-especial:hover { background-color: var(--cor-destaque-hover); }
+    .output-box { margin-top: 10px; background-color: #151515; border: 1px solid var(--cor-frame-borda); border-radius: 5px; padding: 10px; min-height: 200px; flex-grow: 1; overflow-y: auto; font-family: var(--fonte-principal); white-space: pre-wrap; font-size: 20px; }
+    .entrada-historico { padding-bottom: 5px; margin-bottom: 5px; border-bottom: 1px dashed var(--cor-frame-borda); }
+    .preview-box { margin-top: 20px; background-color: var(--cor-fundo); border: 1px solid var(--cor-frame-borda); padding: 10px; border-radius: 5px; }
+    #label-preview { font-family: 'Courier New', Courier, monospace; font-size: 14px; }
+    #btn-confirmar:disabled { background-color: var(--cor-aba-inativa); cursor: not-allowed; }
+    #btn-add-habilidade { margin-bottom: 15px; }
+    .scrollable-list { height: calc(100% - 70px); overflow-y: auto; }
+    .habilidade-card { background-color: var(--cor-fundo); border: 1px solid var(--cor-frame-borda); border-radius: 5px; padding: 15px; margin-bottom: 10px; }
+    .habilidade-card h4 { margin-top: 0; color: var(--cor-destaque); font-size: 18px;}
+    .habilidade-card .custo { font-style: italic; color: #A0A0A0; margin-top: -10px; margin-bottom: 10px; }
+    .habilidade-card .descricao { margin-bottom: 15px; }
+    .habilidade-botoes { text-align: right; }
+    .btn-editar { margin-left: 10px; background-color: var(--cor-aba-inativa); }
+    .btn-excluir { background-color: #9A0000; margin-left: 10px;}
+    .btn-excluir:hover { background-color: #C00000; }
+    .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); display: flex; justify-content: center; align-items: center; z-index: 1000; }
+    .modal-content { background-color: var(--cor-frame); padding: 20px; border-radius: 8px; width: 400px; display: flex; flex-direction: column; gap: 15px; border: 1px solid var(--cor-frame-borda); }
+    .modal-content h2, .modal-content p { margin-top: 0; text-align: center; }
+    .modal-content textarea { min-height: 100px; }
+    .modal-botoes { display: flex; justify-content: flex-end; gap: 10px; }
+    .btn-cancelar { background-color: var(--cor-aba-inativa); }
+    .btn-cancelar:hover { background-color: #5A5A5A; }
+    .hidden { display: none !important; }
+/* --- DEBUFF BUTTONS BONITOS --- */
+#debuff-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+
+.debuff-button {
+    padding: 10px 20px;
+    background: linear-gradient(145deg, #1e1e1e, #292929);
+    color: #FFDDDD;
+    border: 2px solid #FF4444;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    text-transform: uppercase;
+    box-shadow: 0 0 8px #000;
+}
+
+.debuff-button:hover {
+    background: linear-gradient(145deg, #292929, #1e1e1e);
+    color: #ffffff;
+    border-color: #FF7777;
+    box-shadow: 0 0 12px #FF5555;
+}
+
+.debuff-button.active {
+    background: linear-gradient(145deg, #FF4444, #AA0000);
+    color: #FFF;
+    border-color: #FFAAAA;
+    box-shadow: 0 0 15px 4px #FF4444;
+    transform: scale(1.05);
+}
+/* ... (todo o seu CSS existente) ... */
+
+/* COLE ESTE BLOCO NO FINAL DO SEU ARQUIVO STYLE.CSS */
+
+/* --- ESTILOS DA SEÇÃO DE DEBUFFS --- */
+.debuff-section {
+    margin-top: 25px;
+}
+
+#grid-debuffs {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+#debuffs-ativos-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.debuff-ativo {
+    background-color: var(--cor-fundo);
+    border: 1px solid var(--cor-frame-borda);
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Cores específicas para cada debuff */
+.debuff-ativo[data-debuff="Poison"] {
+    color: #00ff9d;
+    border-left: 5px solid #00ff9d;
+}
+
+.debuff-ativo[data-debuff="Dano Mental"] {
+    color: #9932CC;
+    border-left: 5px solid #9932CC;
+}
+
+.debuff-ativo[data-debuff="Corrosão"] {
+    color: #ffef0f;
+    border-left: 5px solid #ffef0f;
+}
+
+/* Estilo para botão de debuff ativo (aceso) */
+.btn-dado.debuff-on {
+    background-color: var(--cor-destaque);
+    color: var(--cor-fundo);
+    font-weight: bold;
+    box-shadow: 0 0 10px 3px var(--cor-destaque-hover);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

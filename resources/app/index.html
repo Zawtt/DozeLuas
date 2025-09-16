@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ciclo Doze Luas - Ficha</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container-principal">
+        <div id="frame-esquerda" class="coluna"><div class="tab-container"><div class="tab-buttons"><button class="tab-button active" data-tab="ficha-principal">Ficha Principal</button><button class="tab-button" data-tab="anotacoes">Anotações</button><button class="tab-button" data-tab="habilidades">Habilidades</button></div><div class="tab-content"><div id="ficha-principal" class="tab-pane active"><div class="ficha-grid"><div class="ficha-retrato"><div id="imagem-placeholder" class="imagem-placeholder">Sem Imagem</div><button id="btn-carregar-imagem" class="btn"><img src="icons/image.png" class="icon">Carregar Imagem</button></div><div class="ficha-info-pessoal"><div class="campo-duplo"><div class="campo"><label>Nome:</label><input id="Nome" type="text" placeholder="Nome"></div><div class="campo"><label>Religião:</label><input id="Religião" type="text" placeholder="Religião"></div></div><div class="campo-duplo"><div class="campo"><label>Altura:</label><input id="Altura" type="text" placeholder="Altura"></div><div class="campo"><label>Raça:</label><input id="Raça" type="text" placeholder="Raça"></div></div><div class="campo-duplo"><div class="campo"><label>Idade:</label><input id="Idade" type="text" placeholder="Idade"></div><div class="campo"><label>Medo:</label><input id="Medo" type="text" placeholder="Medo"></div></div><div class="campo-duplo"><div class="campo"><label>Reino Natal:</label><input id="Reino Natal" type="text" placeholder="Reino Natal"></div></div></div></div><div class="separador"></div><div class="ficha-status"><div class="campo-duplo"><div class="campo"><label>HP:</label><input id="HP" type="text" class="status-input"></div><div class="campo"><label>EN:</label><input id="EN" type="text" class="status-input"></div></div><div class="campo-duplo"><div class="campo"><label>Mana:</label><input id="Mana" type="text" class="status-input"></div><div class="campo"><label>EP:</label><input id="EP" type="text" class="status-input"></div></div><div class="campo-duplo"><div class="campo"><label>Aura:</label><input id="Aura" type="text" class="status-input"></div><div class="campo"><label>EA:</label><input id="EA" type="text" class="status-input"></div></div><div class="campo-duplo"><div class="campo"><label>ER:</label><input id="ER" type="text" class="status-input"></div></div></div><div class="separador"></div><div class="ficha-atributos"><div class="atributos-coluna"><div class="campo"><label>VIGOR:</label><input id="VIGOR" type="text"></div><div class="campo"><label>FORÇA:</label><input id="FORÇA" type="text"></div><div class="campo"><label>DESTREZA:</label><input id="DESTREZA" type="text"></div><div class="campo"><label>AGILIDADE:</label><input id="AGILIDADE" type="text"></div><div class="campo"><label>RARIDADE:</label><input id="RARIDADE" type="text"></div><div class="campo"><label>LIDAR COM ANIMAIS:</label><input id="LIDAR COM ANIMAIS" type="text"></div></div><div class="atributos-coluna"><div class="campo"><label>FURTIVIDADE:</label><input id="FURTIVIDADE" type="text"></div><div class="campo"><label>ADAPTABILIDADE:</label><input id="ADAPTABILIDADE" type="text"></div><div class="campo"><label>PERCEPÇÃO:</label><input id="PERCEPÇÃO" type="text"></div><div class="campo"><label>INTUIÇÃO:</label><input id="INTUIÇÃO" type="text"></div><div class="campo"><label>ATLETISMO:</label><input id="ATLETISMO" type="text"></div><div class="campo"><label>INICIATIVA:</label><input id="INICIATIVA" type="text"></div></div></div><div class="separador"></div><div class="balanca-vida"><h3>Balança da Vida</h3><div class="balanca-grupo" id="balanca-sucesso"><label>SUCESSO:</label><input type="checkbox" id="sucesso_1"><input type="checkbox" id="sucesso_2"><input type="checkbox" id="sucesso_3"></div><div class="balanca-grupo" id="balanca-fracasso"><label>FRACASSO:</label><input type="checkbox" id="fracasso_1"><input type="checkbox" id="fracasso_2"><input type="checkbox" id="fracasso_3"></div></div><div class="ficha-botoes"><button id="btn-salvar" class="btn"><img src="icons/save.png" class="icon">Salvar Ficha</button><button id="btn-carregar" class="btn"><img src="icons/open-folder.png" class="icon">Carregar Ficha</button></div></div>
+                    <div id="anotacoes" class="tab-pane"><textarea id="texto-anotacoes"></textarea></div>
+                    <div id="habilidades" class="tab-pane"><button id="btn-add-habilidade" class="btn btn-full"><img src="icons/add.png" class="icon">+ Habilidades</button><div id="lista-habilidades-container" class="scrollable-list"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="frame-direita" class="coluna">
+            <div class="tab-container"><div class="tab-buttons"><button class="tab-button active" data-tab="rolador">Rodar!</button><button class="tab-button" data-tab="recursos">Calculadora</button></div><div class="tab-content"><div id="rolador" class="tab-pane active"><h3>Digite a expressão:</h3><input type="text" id="entrada-dados" placeholder="ex: 2d6+3"><button id="btn-rolar" class="btn btn-full"><img src="icons/roll.png" class="icon">Rolar!</button><div class="rolagens-rapidas"><h4>Rolagens Rápidas</h4><div id="grid-rolagens-rapidas"><button class="btn-dado" id="btn-d10">d10</button><button class="btn-dado" id="btn-d20">d20</button><button class="btn-dado" id="btn-d50">d50</button><button class="btn-dado" id="btn-d100">d100</button></div></div><h4>Histórico de Rolagens:</h4>
+            <div id="container-historico">
+                <img src="assets/dice-animation.gif" id="dice-animation" class="hidden">
+                <div id="historico-rolagens" class="output-box" readonly></div>
+            </div>
+            <div class="debuff-section">
+                <div class="separador"></div>
+                <h4>Debuffs</h4>
+                <div id="grid-debuffs">
+                    <button class="btn-dado" data-debuff="Poison">Poison</button>
+                    <button class="btn-dado" data-debuff="Dano Mental">Dano Mental</button>
+                    <button class="btn-dado" data-debuff="Corrosão">Corrosão</button>
+                </div>
+                <div id="debuffs-ativos-container">
+                    </div>
+            </div>
+            </div><div id="recursos" class="tab-pane"><h3>Contabilizar:</h3><input type="text" id="entrada-recursos" placeholder="ex: 50 mana, +20 hp"><button id="btn-calcular" class="btn btn-full">Calcular Mudanças</button><div class="preview-box"><h4>PRÉ-VISUALIZAÇÃO</h4><pre id="label-preview">---</pre></div><button id="btn-confirmar" class="btn btn-full" disabled>Confirmar Mudanças</button></div></div></div>
+        </div>
+    </div>
+
+    <div id="modal-habilidade-overlay" class="modal-overlay hidden"><div class="modal-content"><h2 id="modal-habilidade-titulo">Nova Habilidade</h2><div class="campo"><label>Título:</label><input type="text" id="habilidade-titulo-input"></div><div class="campo"><label>Custo:</label><input type="text" id="habilidade-custo-input" placeholder="ex: 50 mana, 10 er"></div><div class="campo"><label>Descrição:</label><textarea id="habilidade-descricao-input"></textarea></div><div class="modal-botoes"><button id="btn-salvar-habilidade" class="btn"><img src="icons/save.png" class="icon">Salvar</button><button id="btn-cancelar-habilidade" class="btn btn-cancelar">Cancelar</button></div></div></div>
+    <div id="modal-confirm-overlay" class="modal-overlay hidden"><div class="modal-content"><h2 id="confirm-modal-titulo">Confirmar Ação</h2><p id="confirm-modal-texto">Você tem certeza?</p><div class="modal-botoes"><button id="btn-confirm-nao" class="btn btn-cancelar">Não</button><button id="btn-confirm-sim" class="btn btn-excluir"><img src="icons/trash.png" class="icon">Sim, Excluir</button></div></div></div>
+    
+    <script src="renderer.js"></script>
+</body>
+</html>

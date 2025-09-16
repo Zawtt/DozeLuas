@@ -1,0 +1,16 @@
+{
+  "name": "CicloDozeLuas",
+  "version": "1.0.0",
+  "description": "Uma ficha de personagem de RPG com ferramentas integradas.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-packager . FichaRPG --platform=win32 --arch=x64 --out=release-builds --overwrite --icon=assets/icon.ico"
+  },
+  "author": "Zawt",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^29.1.5",
+    "electron-packager": "^17.1.2"
+  }
+}
