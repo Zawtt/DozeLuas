@@ -10,7 +10,7 @@
   "author": "Zawt",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^29.1.5",
+    "electron": "^38.1.1",
     "electron-packager": "^17.1.2"
   }
 }
